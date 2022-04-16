@@ -8,3 +8,5 @@
 4. Vercel
 
 ## Resources:
+
+## Structure:
