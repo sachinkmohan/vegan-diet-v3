@@ -36,7 +36,6 @@ const QUERY = gql`
 
 export async function getStaticProps() {
   const { posts } = await graphcms.request(QUERY);
-
   return {
     props: {
       posts,
@@ -53,10 +52,6 @@ export default function Home({ posts }) {
         <meta name="description" content="A blog tutorial made with JAMstack" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <div className={styles.title}>
-        <h1>Digital Scribbles</h1>
-      </div>
 
       <main className={styles.main}>
         {posts.map((post) => (
