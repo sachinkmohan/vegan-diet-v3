@@ -1,7 +1,3 @@
-.blog {
-  margin: 0rem 10rem;
-}
-
 .title {
   padding-top: 1rem;
 }
@@ -49,4 +45,10 @@
   padding: 1rem;
   margin: 2rem 0rem;
   border-radius: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .blog {
+    margin: 0rem 2rem;
+  }
 }
