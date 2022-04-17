@@ -51,4 +51,10 @@
   .blog {
     margin: 0rem 2rem;
   }
+  .content {
+    width: 100%;
+  }
+  .content img {
+    width: 100%;
+  }
 }

@@ -12,3 +12,8 @@
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 3rem;
 }
+
+@media screen and (max-width: 768px) {
+  .main {
+  }
+}
