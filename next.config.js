@@ -1,13 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    domains: ["media.graphassets.com", "localhost"],
-  },
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
-};
+  swcMinify: true,
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
