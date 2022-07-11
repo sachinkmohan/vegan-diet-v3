@@ -1,27 +1,29 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import {GraphQLClient, gql} from 'graphql-request'
-import BlogCard from '../components/BlogCard';
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import { GraphQLClient, gql } from "graphql-request";
+import BlogCard from "../components/BlogCard";
 
-const graphcms = new GraphQLClient('https://api-eu-central-1.graphcms.com/v2/cl5eflpyk103u01t013l2f37w/master');
+const graphcms = new GraphQLClient(
+  "https://api-eu-central-1.graphcms.com/v2/cl5eflpyk103u01t013l2f37w/master"
+);
 
 const QUERY = gql`
   {
-    posts{
-      id,
-      title,
-      datePublished,
-      slug,
+    posts {
+      id
+      title
+      datePublished
+      slug
       content {
         html
       }
-      author{
-        name,
-        avatar{
+      author {
+        name
+        avatar {
           url
         }
       }
-      coverPhoto{
+      coverPhoto {
         url
       }
     }
@@ -29,8 +31,8 @@ const QUERY = gql`
 `;
 
 export async function getStaticProps() {
-  const {posts} = await graphcms.request(QUERY);
-  return{
+  const { posts } = await graphcms.request(QUERY);
+  return {
     props: {
       posts,
     },
@@ -38,7 +40,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({posts}) {
+export default function Home({ posts }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -49,10 +51,16 @@ export default function Home({posts}) {
 
       <main className={styles.main}>
         {posts.map((post) => (
-          <BlogCard title={post.title} author={post.author} coverPhoto={post.coverPhoto} key={post.id} datePublished={post.datePublished} slug={post.slug}/>
+          <BlogCard
+            title={post.title}
+            author={post.author}
+            coverPhoto={post.coverPhoto}
+            key={post.id}
+            datePublished={post.datePublished}
+            slug={post.slug}
+          />
         ))}
       </main>
-
     </div>
-  )
+  );
 }
